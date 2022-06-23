@@ -1,0 +1,7 @@
+<% if current_user != @user %>
+  <%= @user.name %>
+  <%= @user.pronoun %>
+<% else %>
+  <%= render 'form', user: @user, success: nil %>
+<% end %>
+<%= link_to 'Back', users_path %>

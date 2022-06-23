@@ -1,0 +1,11 @@
+<div data-controller="invitations">
+  <div style="width: 100%">
+    <%= render 'invitations/form', user: User.new, errors: [] %>
+  </div>
+
+  <%= turbo_frame_tag 'users', style: "display: flex" do %>
+    <% @users.each do |user| %>
+      <%= render 'invitations/details', user: %>
+    <% end %>
+  <% end %>
+</div>

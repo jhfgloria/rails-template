@@ -1,0 +1,31 @@
+<%= turbo_frame_tag 'user_form' do %>
+  <div>
+    <% user.errors.each do |error| %>
+      <%= error.full_message %>
+    <% end %>
+  </div>
+
+  <% if success %>
+    <p>Profile updated with success</p>
+  <% end %>
+
+  <%= form_with model: user, method: :put do |form| %>
+    <div>
+      <%= form.label :email %>
+      <%= form.text_field :email, disabled: true %>
+    </div>
+
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :pronoun %>
+      <%= form.text_field :pronoun, placeholder: 'She/Her/Hers' %>
+    </div>
+
+    <%= form.hidden_field :id %>
+    <%= form.submit 'Update profile' %>
+  <% end %>
+<% end %>

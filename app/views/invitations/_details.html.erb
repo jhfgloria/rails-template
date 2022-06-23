@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(user), data: { action: 'turbo:frame-render->invitations#clear' } do %>
+  <div>
+    <%= user.email %>
+    <%= not user.invited? || user.invitation_accepted? %>
+  </div>
+<% end %>

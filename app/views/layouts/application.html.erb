@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="w-64 fixed h-screen p-8">
+      <%= link_to 'Login', new_user_session_path unless user_signed_in? %>
+
+      <%= link_to 'Dashboard', user_root_path if user_signed_in? %>
+      <%= link_to 'Invitations', invitations_path if user_signed_in? %>
+      <%= link_to 'People', users_path if user_signed_in? %>
+      <%= button_to("Log Out", destroy_user_session_path, method: :delete) if user_signed_in? %>
+    </nav>
+
+    <main class="ml-64 px-5 py-8">
+      <div class="container mx-auto flex flex-col">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>

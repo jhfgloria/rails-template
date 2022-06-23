@@ -1,0 +1,12 @@
+<%= form_with model: @user_workspace, url: workspaces_path, method: :post, data: { turbo: false }  do |form| %>
+  <% @user_workspace.errors.each do |error| %>
+    <%= error.full_message %>
+  <% end %>
+
+  <%= form.fields_for :workspace do |workspace_form| %>
+    <%= workspace_form.label :name %>
+    <%= workspace_form.text_field :name %>
+  <% end %>
+
+  <%= form.submit 'Confirm' %>
+<% end %>

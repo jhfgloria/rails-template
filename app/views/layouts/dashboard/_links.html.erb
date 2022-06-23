@@ -1,0 +1,14 @@
+<div class="py-2 font-semibold text-lg text-gray-500 flex flex-row content-center">
+  <%= render 'icons/home' %>
+  <%= link_to 'Dashboard', user_root_path, class: "ml-2" if user_signed_in? %>
+</div>
+
+<div class="py-2 font-semibold text-lg text-gray-500 flex flex-row content-center">
+  <%= render 'icons/people' %>
+  <%= link_to 'People', users_path, class: "ml-2" if user_signed_in? %>
+</div>
+
+<div class="py-2 font-semibold text-lg text-gray-500 flex flex-row content-center">
+  <%= render 'icons/email' %>
+  <%= link_to 'Invitations', invitations_path, class: "ml-2" if user_signed_in? %>
+</div>

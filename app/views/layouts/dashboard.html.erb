@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+  <nav class="w-64 fixed h-screen px-8 py-6 border-x-2">
+    <div class="mb-8">
+    <% if current_workspace %>
+        <h1 class="pt-2 font-semibold text-lg text-gray-800"><%= current_workspace.name %></h1>
+        <h2 class="font-medium text-sm text-gray-400">Workspace</h2>
+    <% else %>
+        <div class="h-4 rounded-md bg-gray-600"></div>
+        <h2 class="h-2 mt-2 rounded-md bg-gray-400"></h2>
+    <% end %>
+    </div>
+
+    <%= render 'layouts/dashboard/links' %>
+
+    <div class="border-t-2 mt-4 pt-4 border-gray-100">
+      <div class="py-2 font-semibold text-lg text-gray-500 flex flex-row content-center">
+        <%= render 'icons/logout' %>
+        <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "ml-2") if user_signed_in? %>
+      </div>
+    </div>
+  </nav>
+
+  <main class="ml-64 flex flex-col">
+    <div class="w-full border-b-2 p-8">
+      <h1 class="font-bold text-2xl text-gray-800"><%= @title %></h1>
+    </div>
+
+    <div class="container mx-auto flex flex-col px-8 py-8">
+      <p class="bg-emerald-400"><%= notice %></p>
+      <p class="bg-red-500"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </main>
+</body>
+</html>

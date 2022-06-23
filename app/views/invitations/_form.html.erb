@@ -1,0 +1,10 @@
+<%= turbo_frame_tag 'users_form' do %>
+  <div><%= errors.last %></div>
+
+  <%= form_with model: user, url: invitations_path, method: :post do |form| %>
+    <%= form.label :email %>
+    <%= form.text_field :email, required: true, data: { 'invitations-target': 'input' } %>
+
+    <%= form.submit 'Invite' %>
+  <% end %>
+<% end %>
