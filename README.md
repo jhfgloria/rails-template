@@ -1,24 +1,3 @@
-# README
+# Rails 7 Template for B2B scenarios
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img width="1404" alt="image" src="https://user-images.githubusercontent.com/8668442/178550160-399840cf-61b3-4c8c-90c0-7967d713121b.png">
