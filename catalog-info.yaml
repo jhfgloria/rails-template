@@ -1,0 +1,17 @@
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rails-template
+  links:
+    - url: https://rubyonrails.org/
+      title: Ruby on Rails docs
+      type: documentation
+  tags:
+    - rails
+    - ruby
+spec:
+  type: template
+  lifecycle: production
+  system: templates
+  owner: developers
